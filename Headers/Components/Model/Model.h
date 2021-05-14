@@ -1,17 +1,46 @@
 #ifndef MODEL_H
 #define MODEL_H
 
+#include <vector>
+#include <GL/glut.h>
+#include "../../json.hpp"
+#include "../vertex.h"
+#include "../color4.h"
+
 class Model
 {
 public:
     Model();
+    Model(const std::string &jsonFilename, const std::string &spriteSheetFilename, std::string modelName);
     virtual ~Model();
 
-    // Abstract load method
-    virtual void load() = 0;
+    // Load method
+    void load(const std::string &jsonFilename, const std::string &spriteSheetFilename);
 
-    // Abstract render method
-    virtual void render() = 0;
+    // Init Buffers Method
+    virtual void initBuffers();
+
+    // Render method
+    virtual void render(int frame);
+
+    // Get Frame Method
+    virtual void getFrame(int i, int &x, int &y, int &w, int &h);
+
+    // Read File method
+    virtual void readFile(const std::string &jsonFilename, const std::string &spriteSheetFilename);
+
+    // OpenGL Properties for this model
+    GLuint vertex_vbo_id, texcoord_vbo_id, element_vbo_id;
+    GLuint texture_id, frameCount, tex_h, tex_w;
+
+    std::string modelName;
+    json::JSON jsonData;
+
+private:
+    std::vector<vertex> vertices;
+    std::vector<GLfloat> texCoord;
+    std::vector<GLuint> faces;
+    std::vector<color4> colors;
 };
 
 #endif

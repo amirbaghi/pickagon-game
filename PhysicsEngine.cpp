@@ -9,7 +9,7 @@ PhysicsEngine::PhysicsEngine()
 
 PhysicsEngine::PhysicsEngine(Game *game)
 {
-    this->game = game;
+    this->game_ = game;
 }
 
 PhysicsEngine::~PhysicsEngine()

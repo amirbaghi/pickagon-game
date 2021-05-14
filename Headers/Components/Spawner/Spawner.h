@@ -8,15 +8,15 @@
 class Spawner
 {
 public:
-    Spawner(Model *model);
+    Spawner(std::vector<Model *> models);
     virtual ~Spawner();
 
-    // Abstract method for spawning
-    virtual Actor *spawn() = 0;
+    // // Abstract method for spawning
+    // virtual Actor *spawn() {};
 
 protected:
-    // The Model Associated with the class for this spawner
-    Model *model;
+    // Models Associated with the class for this spawner
+    std::vector<Model *> models;
 };
 
 #endif

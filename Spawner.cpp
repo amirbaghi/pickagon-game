@@ -1,12 +1,15 @@
 #include "./Headers/Components/Spawner/Spawner.h"
 
 
-Spawner::Spawner(Model* model)
+Spawner::Spawner(std::vector<Model *> models)
 {
-    this->model = model;
+    this->models = models;
 }
 
 Spawner::~Spawner()
 {
-    delete model;
+    for (auto m : models)
+    {
+        delete m;
+    }
 }

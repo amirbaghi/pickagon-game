@@ -16,16 +16,16 @@ CommandStream *CommandStream::instance()
 
 void CommandStream::pushCommand(Command *command)
 {
-    commands.push(command);
+    commands_.push(command);
 }
 
 Command *CommandStream::popCommand()
 {
-    if (commands.empty())
+    if (commands_.empty())
         return nullptr;
 
-    auto command = commands.front();
-    commands.pop();
+    auto command = commands_.front();
+    commands_.pop();
 
     return command;
 }

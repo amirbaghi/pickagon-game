@@ -24,7 +24,7 @@ private:
     CommandStream();
 
     // Queue of commands
-    std::queue<Command *> commands;
+    std::queue<Command *> commands_;
 
 };
 

@@ -23,9 +23,9 @@ public:
 
 private:
     // The actors associated with the event
-    std::vector<Actor *> actors;
+    std::vector<Actor *> actors_;
     // The type of event
-    EventType event;
+    EventType event_;
 };
 
 #endif

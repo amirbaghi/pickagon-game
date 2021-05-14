@@ -23,7 +23,7 @@ private:
     PhysicsEngine(Game* game);
 
     // Game Object
-    Game* game;
+    Game* game_;
 };
 
 #endif

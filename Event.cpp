@@ -10,22 +10,22 @@ Event::~Event()
 
 std::vector<Actor *> Event::getActors()
 {
-    return this->actors;
+    return this->actors_;
 }
 
 
 EventType Event::getEventType()
 {
-    return this->event;
+    return this->event_;
 }
 
 
 void Event::setActors(std::vector<Actor *> actors)
 {
-    this->actors = actors;
+    this->actors_ = actors;
 }
 
 void Event::setEventType(EventType eventType)
 {
-    this->event = eventType;
+    this->event_ = eventType;
 }

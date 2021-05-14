@@ -7,6 +7,9 @@
 #include "./Components/Render/RenderEngine.h"
 #include "./Components/Physics/PhysicsEngine.h"
 #include "./Components/Command/CommandStream.h"
+#include "./Components/Spawner/MapSpawner.h"
+#include "./Components/Map/Map.h"
+#include "./Components/Player/Player.h"
 
 class Game
 {
@@ -16,21 +19,18 @@ public:
     // Instance Method
     static Game *instance();
 
+    // Getters
+    Map* getMap();
+
     // Game initialization
-    void initGame();
+    void initGame(int argc, char **argv);
 
-    // Game Main Loop
-    void mainLoop();
-
-    // Run the Game
-    void run();
+    // Main Loop
+    int mainLoop();
 
 private:
     // Private Constructor
     Game();
-
-    // Render Engine
-    RenderEngine *renderEngine;
 
     // Command Stream
     CommandStream *commandStream;
@@ -39,12 +39,16 @@ private:
     PhysicsEngine *physicsEngine;
 
     // Spawners
+    MapSpawner* mapSpawner;
 
     // Map
+    Map* map;
+
+    // Player
+    Player* player;
 
     // Start Time
     std::chrono::steady_clock::time_point startTime;
-
 };
 
 #endif

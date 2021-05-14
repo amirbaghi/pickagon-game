@@ -1,3 +1,5 @@
+#include <GL/glew.h>
+#include <GL/glut.h>
 #include "./Headers/Game.h"
 
 Game::Game()
@@ -6,9 +8,11 @@ Game::Game()
 
 Game::~Game()
 {
-    delete renderEngine;
     delete commandStream;
     delete physicsEngine;
+    delete mapSpawner;
+    delete map;
+    delete player;
 }
 
 Game *Game::instance()
@@ -17,66 +21,46 @@ Game *Game::instance()
     return instance;
 }
 
-
-void Game::initGame()
+void Game::initGame(int argc, char **argv)
 {
     // Setting the start time for the game
     startTime = std::chrono::steady_clock::now();
 
     std::srand((unsigned int)std::time(NULL));
 
-    // Initializing the main modules of the game
-    renderEngine = RenderEngine::instance(this);
+    // // Initializing the main modules of the game
     commandStream = CommandStream::instance();
     physicsEngine = PhysicsEngine::instance(this);
+    RenderEngine::init(argc, argv, this);
 
-    // Subscribing to the physics engine
+    // Load Models
+    std::vector<Model *> models;
 
-    // Creating and Loading models for squares and the board
-    // And creating a spawner for the board, using the models
-    // BoardModel *boardModel = new BoardModel();
-    // SquareModel *squareModel = new SquareModel();
-    // boardModel->load();
-    // squareModel->load();
-    // boardSpawner = new BoardSpawner(boardModel, squareModel);
+    // Load Grass Model
+    Model *grassModel = new Model("./Assets/Grass/grass.json", "./Assets/Grass/grass.png", "grass");
 
+    // Load Dirt Model
+    Model *dirtModel = new Model("./Assets/Dirt/dirt.json", "./Assets/Dirt/dirt.png", "dirt");
 
-    // Spawning the Board
-    // board = boardSpawner->spawn();
+    models.push_back(grassModel);
+    models.push_back(dirtModel);
 
+    MapSpawner *mapSpawner = new MapSpawner(models);
+
+    mapSpawner->setHeight(10);
+    mapSpawner->setWidth(20);
+
+    map = mapSpawner->spawn();
+
+    player = new Player();
 }
 
-void Game::mainLoop()
+int Game::mainLoop()
 {
-
-    do
-    {
-
-        // Get command from Player
-        // Command *command = aiEngine->generateMove(currentTurn);
-
-        // Push it in the command stream
-        // commandStream->pushCommand(command);
-
-        // Pop the most recent command
-        // Command *recentCommand = commandStream->popCommand();
-
-        // Update the game
-        // physicsEngine->update(*recentCommand);
-
-        // Delete the recent command
-        // delete recentCommand;
-
-    } while (true);
+    glutMainLoop();
 }
 
-void Game::run()
+Map *Game::getMap()
 {
-
-    // Initialize the game for the first time
-    this->initGame();
-
-    // Running the game
-    this->mainLoop();
-
+    return map;
 }
