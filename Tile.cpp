@@ -67,7 +67,6 @@ void Tile::setName(int name)
 void Tile::render()
 {
     glPushMatrix();
-    // glLoadIdentity();
     glTranslatef(position_.x, position_.y, position_.z);
     glScalef(0.5, 0.5, 1.0);
     glLoadName(name_);

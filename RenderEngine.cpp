@@ -1,5 +1,4 @@
 #include <GL/glew.h>
-#include <GL/glut.h>
 #include <iostream>
 #include "./Headers/Components/Render/RenderEngine.h"
 #include "./Headers/Game.h"
@@ -72,7 +71,89 @@ void RenderEngine::render()
 
 void RenderEngine::mouseFunction(int button, int state, int x, int y)
 {
-    std::cout << x << " " << y << std::endl;
+    GLuint selectBuf[BUFFSIZE];
+    GLint hits;
+    GLint viewport[4];
+    if (button != GLUT_LEFT_BUTTON || state != GLUT_DOWN)
+        return;
+
+    glGetIntegerv(GL_VIEWPORT, viewport);
+    glSelectBuffer(BUFFSIZE, selectBuf);
+    glRenderMode(GL_SELECT);
+
+    glInitNames();
+    glPushName(-1);
+
+    // PICK MATRIX
+
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+    gluPickMatrix((GLdouble)x, (GLdouble)(viewport[3] - y), 0.05, 0.05, viewport);
+
+    // ORIGINAL PROJECTION MATRIX
+
+    auto w = glutGet(GLUT_WINDOW_WIDTH);
+    auto h = glutGet(GLUT_WINDOW_HEIGHT);
+
+    glOrtho(0, w, 0, h, 0.0, 3.0);
+
+    gluLookAt(RenderEngine::x_camera_offset, RenderEngine::y_camera_offset, 2, RenderEngine::x_camera_offset, RenderEngine::y_camera_offset, 0, 0, 1, 0);
+
+    // Render
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+    glMatrixMode(GL_MODELVIEW);
+
+    Map *map = RenderEngine::game->getMap();
+
+    map->render();
+
+    glLoadName(-1);
+
+    glDisableClientState(GL_COLOR_ARRAY);
+    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+    glPopMatrix();
+
+    glutSwapBuffers();
+
+    // // Process Hits
+    hits = glRenderMode(GL_RENDER);
+    select(hits, selectBuf);
+}
+
+void RenderEngine::select(GLint hits, GLuint buffer[])
+{
+    // Process hits
+    if (hits == 0)
+    {
+        return;
+    }
+    unsigned int i, j;
+    GLuint names, *ptr, minZ, *ptrNames;
+
+    ptr = (GLuint *)buffer;
+    minZ = 0xffffffff;
+    for (i = 0; i < hits; i++)
+    {
+        names = *ptr;
+        ptr++;
+        if (*ptr < minZ)
+        {
+            minZ = *ptr;
+            ptrNames = ptr + 2;
+        }
+        ptr += names + 2;
+    }
+    ptr = ptrNames;
+
+    std::cout << *ptr << std::endl;
+
+
+    // RETURN PICK COMMAND TO GAME
 }
 
 void RenderEngine::specialKeyboardFunction(int key, int x, int y)

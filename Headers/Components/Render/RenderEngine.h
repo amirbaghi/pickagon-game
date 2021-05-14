@@ -2,7 +2,10 @@
 #ifndef RENDERENGINE_H
 #define RENDERENGINE_H
 
+#include <GL/glut.h>
 #include "../Direction.h"
+
+#define BUFFSIZE 2048
 
 class Game;
 
@@ -22,10 +25,13 @@ public:
     static double y_camera_offset;
 
     // Init render engine
-    static void init(int argc, char **argv, Game* game);
+    static void init(int argc, char **argv, Game *game);
 
     // Method to for rendering
     static void render();
+
+    // Select Method
+    static void select(GLint hits, GLuint buffer[]);
 
     // Mouse Function
     static void mouseFunction(int button, int state, int x, int y);
@@ -47,7 +53,6 @@ public:
 
     // Camera Function
     static void camera_config(double w, double h);
-
 };
 
 #endif
