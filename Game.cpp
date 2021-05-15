@@ -37,11 +37,13 @@ void Game::initGame(int argc, char **argv)
     // Load Models
     std::vector<Model *> models;
 
-    // Load Grass Model
     Model *grassModel = new Model("./Assets/Grass/grass.json", "./Assets/Grass/grass.png", "grass");
 
-    // Load Dirt Model
     Model *dirtModel = new Model("./Assets/Dirt/dirt.json", "./Assets/Dirt/dirt.png", "dirt");
+
+    double scaleRatio = 2.0;
+    dirtModel->setScaleRatio(scaleRatio);
+    grassModel->setScaleRatio(scaleRatio);
 
     models.push_back(grassModel);
     models.push_back(dirtModel);

@@ -13,6 +13,16 @@ Model::~Model()
 {
 }
 
+double Model::getScaleRatio()
+{
+    return scaleRatio;
+}
+
+void Model::setScaleRatio(double ratio)
+{
+    scaleRatio = ratio;
+}
+
 Model::Model(const std::string &jsonFilename, const std::string &spriteSheetFilename, std::string modelName)
 {
     this->modelName = modelName;
@@ -113,7 +123,7 @@ void Model::render(int frame)
     texCoord.push_back(1 - (float)y / tex_h);
 
     glBindBuffer(GL_ARRAY_BUFFER, texcoord_vbo_id);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertex), &texCoord[0], GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, texCoord.size() * sizeof(float), &texCoord[0], GL_DYNAMIC_DRAW);
     glTexCoordPointer(2, GL_FLOAT, 0, NULL);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_vbo_id);

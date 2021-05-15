@@ -34,7 +34,8 @@ void UnselectedState::render(Tile &tile)
 {
     glPushMatrix();
     glTranslatef(tile.getPosition().x, tile.getPosition().y, tile.getPosition().z);
-    glScalef(0.5, 0.5, 1.0);
+    double ratio = tile.getModel()->getScaleRatio();
+    glScalef(1.0 / ratio, 1.0 / ratio, 1.0);
     glLoadName(tile.getName());
     tile.getModel()->render(tile.getFrame());
     glPopMatrix();

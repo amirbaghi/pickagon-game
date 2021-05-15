@@ -46,15 +46,17 @@ Map *MapSpawner::spawn()
     std::vector<Tile *> tiles;
 
     int count = 0;
+    double w = 120.0 / models[0]->getScaleRatio();
+    double h = 140.0 / models[0]->getScaleRatio();
 
-    double x_offset = 30;
-    double y_offset = 35 + (30.0 / cos(30.0 * M_PI / 180.0)) / 2.0;
+    double x_offset = w / 2.0;
+    double y_offset = h / 2.0 + ((w / 2.0) / cos(30.0 * M_PI / 180.0)) / 2.0;
 
     double current_x, current_y;
 
     for (int i = 0; i < map->getHeight(); i++)
     {
-        current_y = 35 + i * y_offset;
+        current_y = (h / 2.0) + i * y_offset;
         for (int j = 0; j < map->getWidth(); j++)
         {
             Tile *tile;
@@ -74,11 +76,11 @@ Map *MapSpawner::spawn()
 
             if (i % 2 == 0)
             {
-                current_x = 30 + j * 60;
+                current_x = w / 2.0 + j * w;
             }
             else
             {
-                current_x = 60 + j * 60;
+                current_x = w + j * w;
             }
 
             tile->setPosition(vertex(current_x, current_y, 0.0));

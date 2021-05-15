@@ -26,7 +26,7 @@ void RenderEngine::init(int argc, char **argv, Game *game)
     glHint(GL_MULTISAMPLE_FILTER_HINT_NV, GL_NICEST);
 
     glutInitWindowPosition(100, 100);
-    glutInitWindowSize(500, 500);
+    glutInitWindowSize(1000, 1000);
     glutCreateWindow("Pickagon");
 
     RenderEngine::game = game;

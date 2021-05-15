@@ -29,6 +29,12 @@ public:
     // Read File method
     virtual void readFile(const std::string &jsonFilename, const std::string &spriteSheetFilename);
 
+    // Scale Ratio Getter
+    double getScaleRatio();
+
+    // Scale Ratio Setter
+    void setScaleRatio(double ratio);
+
     // OpenGL Properties for this model
     GLuint vertex_vbo_id, texcoord_vbo_id, element_vbo_id;
     GLuint texture_id, frameCount, tex_h, tex_w;
@@ -41,6 +47,9 @@ private:
     std::vector<GLfloat> texCoord;
     std::vector<GLuint> faces;
     std::vector<color4> colors;
+
+    // The ratio by which the width and height of the texture is divided
+    double scaleRatio;
 };
 
 #endif
