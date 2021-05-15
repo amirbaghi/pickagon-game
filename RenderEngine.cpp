@@ -122,39 +122,15 @@ void RenderEngine::mouseFunction(int button, int state, int x, int y)
 
     // // Process Hits
     hits = glRenderMode(GL_RENDER);
-    select(hits, selectBuf);
+    game->handleSelection(hits, selectBuf);
 }
 
-void RenderEngine::select(GLint hits, GLuint buffer[])
-{
-    // Process hits
-    if (hits == 0)
-    {
-        return;
-    }
-    unsigned int i, j;
-    GLuint names, *ptr, minZ, *ptrNames;
-
-    ptr = (GLuint *)buffer;
-    minZ = 0xffffffff;
-    for (i = 0; i < hits; i++)
-    {
-        names = *ptr;
-        ptr++;
-        if (*ptr < minZ)
-        {
-            minZ = *ptr;
-            ptrNames = ptr + 2;
-        }
-        ptr += names + 2;
-    }
-    ptr = ptrNames;
-
-    std::cout << *ptr << std::endl;
+// void RenderEngine::select(GLint hits, GLuint buffer[])
+// {
 
 
-    // RETURN PICK COMMAND TO GAME
-}
+//     // RETURN PICK COMMAND TO GAME
+// }
 
 void RenderEngine::specialKeyboardFunction(int key, int x, int y)
 {
@@ -259,6 +235,7 @@ void RenderEngine::timer(int value)
     auto h = glutGet(GLUT_WINDOW_HEIGHT);
 
     camera_config(w, h);
+
 
     glutTimerFunc(25, timer, value + 1);
 

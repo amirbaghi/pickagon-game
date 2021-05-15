@@ -13,6 +13,7 @@ public:
     virtual TileState* handleEvent(Tile& tile, Event event) = 0;
     virtual void enter(Tile& tile);
     virtual void update(Tile& tile);
+    virtual void render(Tile& tile);
 };
 
 

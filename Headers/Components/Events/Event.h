@@ -11,19 +11,19 @@ public:
     Event();
     ~Event();
 
-    // Actors getter
-    std::vector<Actor *> getActors();
+    // Actor Names getter
+    std::vector<int> getActorNames();
     // EventType Getter
     EventType getEventType();
 
     // Actors Setter
-    void setActors(std::vector<Actor *> actors);
+    void setActorNames(std::vector<int> actorNames);
     // EventType Setter
     void setEventType(EventType eventType);
 
 private:
-    // The actors associated with the event
-    std::vector<Actor *> actors_;
+    // The names of the actors associated with this event
+    std::vector<int> actorNames_;
     // The type of event
     EventType event_;
 };

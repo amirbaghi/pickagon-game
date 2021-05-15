@@ -8,3 +8,8 @@ Actor::Actor(Model *model)
 Actor::~Actor()
 {
 }
+
+Model* Actor::getModel()
+{
+    return this->model;
+}

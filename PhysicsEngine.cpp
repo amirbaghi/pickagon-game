@@ -22,7 +22,7 @@ PhysicsEngine *PhysicsEngine::instance(Game *game)
     return instance;
 }
 
-void PhysicsEngine::update(Command &command)
+void PhysicsEngine::handleCommand(Command &command)
 {
     // Execute the command
     Event *event = command.execute();
@@ -30,8 +30,13 @@ void PhysicsEngine::update(Command &command)
     // Notify all the observers of the event that happened
     notify((*event));
 
-    // TODO: Update the map as well?
-
     // Delete the event
     delete event;
+}
+
+void PhysicsEngine::update()
+{
+    Map *map = game_->getMap();
+
+    map->update();
 }

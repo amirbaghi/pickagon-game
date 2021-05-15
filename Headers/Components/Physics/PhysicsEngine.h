@@ -12,18 +12,21 @@ public:
     ~PhysicsEngine();
 
     // Instance Method
-    static PhysicsEngine* instance(Game* game);
+    static PhysicsEngine *instance(Game *game);
 
     // Update Method
-    void update(Command& command);
+    void update();
+
+    // Handle Event
+    void handleCommand(Command& command);
 
 private:
     // Private Constructor
     PhysicsEngine();
-    PhysicsEngine(Game* game);
+    PhysicsEngine(Game *game);
 
     // Game Object
-    Game* game_;
+    Game *game_;
 };
 
 #endif

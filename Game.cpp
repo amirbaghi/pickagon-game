@@ -1,6 +1,7 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 #include "./Headers/Game.h"
+#include "./Headers/Components/Command/PickCommand.h"
 
 Game::Game()
 {
@@ -52,6 +53,14 @@ void Game::initGame(int argc, char **argv)
 
     map = mapSpawner->spawn();
 
+    // Subscribe the tiles to the physics engine
+    std::vector<Tile *> tiles = map->getTiles();
+
+    for (auto t : tiles)
+    {
+        physicsEngine->addObserver(t);
+    }
+
     player = new Player();
 }
 
@@ -63,4 +72,40 @@ int Game::mainLoop()
 Map *Game::getMap()
 {
     return map;
+}
+
+void Game::handleSelection(GLint hits, GLuint buffer[])
+{
+    // Process hits
+    if (hits == 0)
+    {
+        return;
+    }
+    unsigned int i, j;
+    GLuint names, *ptr, minZ, *ptrNames;
+
+    ptr = (GLuint *)buffer;
+    minZ = 0xffffffff;
+    for (i = 0; i < hits; i++)
+    {
+        names = *ptr;
+        ptr++;
+        if (*ptr < minZ)
+        {
+            minZ = *ptr;
+            ptrNames = ptr + 2;
+        }
+        ptr += names + 2;
+    }
+    ptr = ptrNames;
+
+    PickCommand *pickCommand = new PickCommand();
+
+    pickCommand->setName(*ptr);
+
+    commandStream->pushCommand(pickCommand);
+
+    Command *command = commandStream->popCommand();
+
+    physicsEngine->handleCommand(*command);
 }

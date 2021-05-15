@@ -8,9 +8,9 @@ Event::~Event()
 {
 }
 
-std::vector<Actor *> Event::getActors()
+std::vector<int> Event::getActorNames()
 {
-    return this->actors_;
+    return this->actorNames_;
 }
 
 
@@ -20,9 +20,9 @@ EventType Event::getEventType()
 }
 
 
-void Event::setActors(std::vector<Actor *> actors)
+void Event::setActorNames(std::vector<int> actorNames)
 {
-    this->actors_ = actors;
+    this->actorNames_ = actorNames;
 }
 
 void Event::setEventType(EventType eventType)

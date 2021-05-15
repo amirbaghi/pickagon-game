@@ -31,7 +31,7 @@ public:
     static void render();
 
     // Select Method
-    static void select(GLint hits, GLuint buffer[]);
+    // static void select(GLint hits, GLuint buffer[]);
 
     // Mouse Function
     static void mouseFunction(int button, int state, int x, int y);

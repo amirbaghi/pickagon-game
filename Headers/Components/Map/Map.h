@@ -23,6 +23,9 @@ public:
     // Render
     void render();
 
+    // Update
+    void update();
+
     // TODO: Maybe make this class an observer and subscribe to the physics engine
     // and then propagate the events down to tiles
 

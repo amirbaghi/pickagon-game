@@ -11,17 +11,17 @@ public:
     ~PickCommand();
 
     // Getters
-    Tile *getTile();
+    int getName();
 
     // Setters
-    void setTile(Tile *tile);
+    void setName(int name);
 
     // Execute command
     Event *execute();
 
 private:
-    // Picked Tile
-    Tile *tile_;
+    // Name of the picked tile
+    int name_;
 };
 
 #endif

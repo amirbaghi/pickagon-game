@@ -45,8 +45,16 @@ void Map::setTiles(std::vector<Tile *> tiles)
 
 void Map::render()
 {
-    for (auto t: tiles_)
+    for (auto t : tiles_)
     {
         t->render();
+    }
+}
+
+void Map::update()
+{
+    for (auto t : tiles_)
+    {
+        t->update();
     }
 }

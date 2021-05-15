@@ -15,3 +15,7 @@ void TileState::enter(Tile &tile)
 void TileState::update(Tile &tile)
 {
 }
+
+void TileState::render(Tile &tile)
+{
+}

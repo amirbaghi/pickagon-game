@@ -25,6 +25,9 @@ public:
     // Render method
     void render() override;
 
+    // Update method
+    void update() override;
+
     // On Notify Method
     void onNotify(Event &event) override;
 

@@ -9,14 +9,14 @@ PickCommand::~PickCommand()
 {
 }
 
-Tile *PickCommand::getTile()
+int PickCommand::getName()
 {
-    return tile_;
+    return name_;
 }
 
-void PickCommand::setTile(Tile *tile)
+void PickCommand::setName(int name)
 {
-    tile_ = tile;
+    name_ = name;
 }
 
 Event *PickCommand::execute()
@@ -25,11 +25,11 @@ Event *PickCommand::execute()
 
     event->setEventType(PICK_TILE);
 
-    std::vector<Actor *> actors = event->getActors();
+    std::vector<int> actorNames = event->getActorNames();
 
-    actors.push_back(tile_);
+    actorNames.push_back(name_);
 
-    event->setActors(actors);
+    event->setActorNames(actorNames);
 
     return event;
 }

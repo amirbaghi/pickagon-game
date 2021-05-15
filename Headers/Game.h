@@ -22,6 +22,9 @@ public:
     // Getters
     Map* getMap();
 
+    // Handle Selection
+    void handleSelection(GLint hits, GLuint buffer[]);
+
     // Game initialization
     void initGame(int argc, char **argv);
 

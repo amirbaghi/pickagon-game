@@ -66,10 +66,10 @@ void Tile::setName(int name)
 
 void Tile::render()
 {
-    glPushMatrix();
-    glTranslatef(position_.x, position_.y, position_.z);
-    glScalef(0.5, 0.5, 1.0);
-    glLoadName(name_);
-    model->render(this->frame);
-    glPopMatrix();
+    this->tileState_->render(*this);
+}
+
+void Tile::update()
+{
+    this->tileState_->update(*this);
 }
