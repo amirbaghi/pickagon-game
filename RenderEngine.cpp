@@ -63,7 +63,7 @@ void RenderEngine::render()
 
     glLoadName(-1);
 
-    glDisableClientState(GL_COLOR_ARRAY);
+    glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
     glutSwapBuffers();
@@ -125,12 +125,6 @@ void RenderEngine::mouseFunction(int button, int state, int x, int y)
     game->handleSelection(hits, selectBuf);
 }
 
-// void RenderEngine::select(GLint hits, GLuint buffer[])
-// {
-
-
-//     // RETURN PICK COMMAND TO GAME
-// }
 
 void RenderEngine::specialKeyboardFunction(int key, int x, int y)
 {

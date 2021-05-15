@@ -84,7 +84,6 @@ void Model::getFrame(int i, int &x, int &y, int &w, int &h)
     h = frame["h"].ToInt();
 }
 
-
 void Model::render(int frame)
 {
     int x, y, w, h;
@@ -94,10 +93,10 @@ void Model::render(int frame)
     glBindTexture(GL_TEXTURE_2D, texture_id);
 
     vertices.clear();
-    vertices.push_back(vertex(0, 0, 0));
-    vertices.push_back(vertex(0 + w, 0, 0));
-    vertices.push_back(vertex(0 + w, 0 + h, 0));
-    vertices.push_back(vertex(0, 0 + h, 0));
+    vertices.push_back(vertex(0 - w / 2, 0 - h / 2, 0));
+    vertices.push_back(vertex(0 + w / 2, 0 - h / 2, 0));
+    vertices.push_back(vertex(0 + w / 2, 0 + h / 2, 0));
+    vertices.push_back(vertex(0 - w / 2, 0 + h / 2, 0));
 
     glBindBuffer(GL_ARRAY_BUFFER, vertex_vbo_id);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertex), &vertices[0], GL_DYNAMIC_DRAW);
