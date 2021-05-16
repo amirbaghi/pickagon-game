@@ -23,7 +23,7 @@ public:
     // Render method
     virtual void render(int frame);
 
-    // Get Frame Method
+    // Frame Getter
     virtual void getFrame(int i, int &x, int &y, int &w, int &h);
 
     // Read File method

@@ -1,0 +1,355 @@
+{
+	"frames": {
+		"scifi_01.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_02.png": {
+			"frame": {
+				"x": 123,
+				"y": 1,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_03.png": {
+			"frame": {
+				"x": 245,
+				"y": 1,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_04.png": {
+			"frame": {
+				"x": 367,
+				"y": 1,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_05.png": {
+			"frame": {
+				"x": 1,
+				"y": 143,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_06.png": {
+			"frame": {
+				"x": 123,
+				"y": 143,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_07.png": {
+			"frame": {
+				"x": 245,
+				"y": 143,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_08.png": {
+			"frame": {
+				"x": 367,
+				"y": 143,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_09.png": {
+			"frame": {
+				"x": 1,
+				"y": 285,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_10.png": {
+			"frame": {
+				"x": 123,
+				"y": 285,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_11.png": {
+			"frame": {
+				"x": 245,
+				"y": 285,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_12.png": {
+			"frame": {
+				"x": 367,
+				"y": 285,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_13.png": {
+			"frame": {
+				"x": 489,
+				"y": 1,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_14.png": {
+			"frame": {
+				"x": 489,
+				"y": 143,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_15.png": {
+			"frame": {
+				"x": 489,
+				"y": 285,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_16.png": {
+			"frame": {
+				"x": 1,
+				"y": 427,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"scifi_17.png": {
+			"frame": {
+				"x": 123,
+				"y": 427,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 610,
+			"h": 568
+		},
+		"scale": "1"
+	}
+}

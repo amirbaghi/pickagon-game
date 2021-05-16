@@ -9,7 +9,16 @@ Actor::~Actor()
 {
 }
 
+Actor::Actor()
+{
+}
+
 Model* Actor::getModel()
 {
     return this->model;
+}
+
+void Actor::setModel(Model* model)
+{
+    this->model = model;
 }

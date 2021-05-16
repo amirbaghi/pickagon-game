@@ -4,7 +4,7 @@
 #include "./Headers/Components/State/TileState.h"
 #include "./Headers/Components/Events/Event.h"
 
-Tile::Tile(Model *model, TileState *initialState) : Actor(model)
+Tile::Tile(TileState *initialState) : Actor()
 {
     // Set the initial state for the tile
     tileState_ = initialState;

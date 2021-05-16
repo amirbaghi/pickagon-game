@@ -13,10 +13,9 @@ public:
     int getWidth();
     int getHeight();
 
-    void setWidth(int width);
-    void setHeight(int height);
-
-    // TODO: MIGHT NEED MODIFICATION
+    // Set width and height to 2^n + 1
+    void setWidthAndHeight(int n);
+    
     Map *spawn();
 
 private:

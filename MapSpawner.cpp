@@ -1,9 +1,12 @@
 #include <random>
 #include <ctime>
+#include <cmath>
 #include "./Headers/Components/Spawner/MapSpawner.h"
+#include "./Headers/Components/Spawner/DiamondSquareGenerator.h"
 #include "./Headers/Components/Map/Map.h"
 #include "./Headers/Components/State/TileState.h"
 #include "./Headers/Components/State/UnselectedState.h"
+#include "./Headers/Utils.h"
 
 MapSpawner::MapSpawner(std::vector<Model *> models) : Spawner(models)
 {
@@ -23,14 +26,10 @@ int MapSpawner::getHeight()
     return height_;
 }
 
-void MapSpawner::setHeight(int height)
+void MapSpawner::setWidthAndHeight(int n)
 {
-    height_ = height;
-}
-
-void MapSpawner::setWidth(int width)
-{
-    width_ = width;
+    width_ = pow(2, n) + 1;
+    height_ = pow(2, n) + 1;
 }
 
 Map *MapSpawner::spawn()
@@ -61,16 +60,7 @@ Map *MapSpawner::spawn()
         {
             Tile *tile;
             TileState *tileState = new UnselectedState();
-            if (j >= map->getWidth() / 2)
-            {
-                tile = new Tile(models[0], tileState);
-            }
-            else
-            {
-                tile = new Tile(models[1], tileState);
-            }
-
-            tile->setFrame(1 + (std::rand() % 16));
+            tile = new Tile(tileState);
             tile->setName(count);
             ++count;
 
@@ -86,6 +76,67 @@ Map *MapSpawner::spawn()
             tile->setPosition(vertex(current_x, current_y, 0.0));
 
             tiles.push_back(tile);
+        }
+    }
+
+    // Texture assignment (First generate a height map using the diamond square map generator, then assign the textures based on the values,
+    // the values returned by the generator are normalized)
+    double **diamondMap = DiamondSquareGenerator::diamondSquareMapGenerator(width_);
+
+    int index = 0;
+    for (int i = 0; i < width_; i++)
+    {
+        for (int j = 0; j < height_; j++, index++)
+        {
+            Tile *tile = tiles[index];
+            if (0 <= diamondMap[i][j] && diamondMap[i][j] < 0.2)
+            {
+                // Sand
+                tile->setModel(models[0]);
+                tile->setFrame((std::rand() % 17));
+            }
+            else if (0.2 <= diamondMap[i][j] && diamondMap[i][j] < 0.4)
+            {
+                // Dirt
+                tile->setModel(models[1]);
+                tile->setFrame(1 + (std::rand() % 17));
+            }
+            else if (0.4 <= diamondMap[i][j] && diamondMap[i][j] < 0.6)
+            {
+                // Grass
+                tile->setModel(models[2]);
+                tile->setFrame((std::rand() % 17));
+            }
+            else if (0.6 <= diamondMap[i][j] && diamondMap[i][j] < 0.7)
+            {
+                // Modern
+                tile->setModel(models[3]);
+                tile->setFrame((std::rand() % 13));
+            }
+            else if (0.7 <= diamondMap[i][j] && diamondMap[i][j] < 0.8)
+            {
+                // Stone
+                tile->setModel(models[4]);
+                tile->setFrame((std::rand() % 17));
+            }
+            else if (0.8 <= diamondMap[i][j] && diamondMap[i][j] < 0.9)
+            {
+                // Mars
+                tile->setModel(models[5]);
+                tile->setFrame((std::rand() % 17));
+            }
+            else if (0.9 <= diamondMap[i][j] && diamondMap[i][j] <= 1.0)
+            {
+                // Sci-fi
+                tile->setModel(models[6]);
+                tile->setFrame((std::rand() % 17));
+            }
+            else
+            {
+                // Sand
+                tile->setModel(models[0]);
+                tile->setFrame((std::rand() % 17));
+            }
         }
     }
 

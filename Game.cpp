@@ -34,24 +34,37 @@ void Game::initGame(int argc, char **argv)
     physicsEngine = PhysicsEngine::instance(this);
     RenderEngine::init(argc, argv, this);
 
-    // Load Models
+    // Load Models and adding them to the map spawner's vector of models
     std::vector<Model *> models;
 
     Model *grassModel = new Model("./Assets/Grass/grass.json", "./Assets/Grass/grass.png", "grass");
-
     Model *dirtModel = new Model("./Assets/Dirt/dirt.json", "./Assets/Dirt/dirt.png", "dirt");
+    Model *marsModel = new Model("./Assets/Mars/mars.json", "./Assets/Mars/mars.png", "mars");
+    Model *sandModel = new Model("./Assets/Sand/sand.json", "./Assets/Sand/sand.png", "sand");
+    Model *stoneModel = new Model("./Assets/Stone/stone.json", "./Assets/Stone/stone.png", "stone");
+    Model *modernModel = new Model("./Assets/Modern/modern.json", "./Assets/Modern/modern.png", "modern");
+    Model *scifiModel = new Model("./Assets/Sci-fi/scifi.json", "./Assets/Sci-fi/scifi.png", "scifi");
 
     double scaleRatio = 2.0;
     dirtModel->setScaleRatio(scaleRatio);
     grassModel->setScaleRatio(scaleRatio);
+    marsModel->setScaleRatio(scaleRatio);
+    sandModel->setScaleRatio(scaleRatio);
+    stoneModel->setScaleRatio(scaleRatio);
+    modernModel->setScaleRatio(scaleRatio);
+    scifiModel->setScaleRatio(scaleRatio);
 
-    models.push_back(grassModel);
+    models.push_back(sandModel);
     models.push_back(dirtModel);
+    models.push_back(grassModel);
+    models.push_back(modernModel);
+    models.push_back(stoneModel);
+    models.push_back(marsModel);
+    models.push_back(scifiModel);
 
     MapSpawner *mapSpawner = new MapSpawner(models);
 
-    mapSpawner->setHeight(10);
-    mapSpawner->setWidth(20);
+    mapSpawner->setWidthAndHeight(7);
 
     map = mapSpawner->spawn();
 

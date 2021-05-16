@@ -26,14 +26,14 @@ void RenderEngine::init(int argc, char **argv, Game *game)
     glHint(GL_MULTISAMPLE_FILTER_HINT_NV, GL_NICEST);
 
     glutInitWindowPosition(100, 100);
-    glutInitWindowSize(1000, 1000);
+    glutInitWindowSize(3000, 3000);
     glutCreateWindow("Pickagon");
 
     RenderEngine::game = game;
 
     glewInit();
 
-    glClearColor(0.2, 0.2, 0.2, 0.0);
+    glClearColor(0.0, 105.0 / 255.0 , 148.0 / 255.0 , 0.0);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -241,7 +241,7 @@ void RenderEngine::camera_config(double w, double h)
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0, w, 0, h, 0.0, 3.0);
+    glOrtho(0, w + 10000, 0, h + 10000, 0.0, 3.0);
 
     gluLookAt(RenderEngine::x_camera_offset, RenderEngine::y_camera_offset, 2, RenderEngine::x_camera_offset, RenderEngine::y_camera_offset, 0, 0, 1, 0);
 

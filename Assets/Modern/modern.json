@@ -1,0 +1,275 @@
+{
+	"frames": {
+		"modern_01.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_02.png": {
+			"frame": {
+				"x": 123,
+				"y": 1,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_03.png": {
+			"frame": {
+				"x": 245,
+				"y": 1,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_04.png": {
+			"frame": {
+				"x": 1,
+				"y": 143,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_05.png": {
+			"frame": {
+				"x": 123,
+				"y": 143,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_06.png": {
+			"frame": {
+				"x": 245,
+				"y": 143,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_07.png": {
+			"frame": {
+				"x": 1,
+				"y": 285,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_08.png": {
+			"frame": {
+				"x": 123,
+				"y": 285,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_09.png": {
+			"frame": {
+				"x": 245,
+				"y": 285,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_10.png": {
+			"frame": {
+				"x": 367,
+				"y": 1,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_11.png": {
+			"frame": {
+				"x": 367,
+				"y": 143,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_12.png": {
+			"frame": {
+				"x": 367,
+				"y": 285,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		},
+		"modern_13.png": {
+			"frame": {
+				"x": 1,
+				"y": 427,
+				"w": 120,
+				"h": 140
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+				"h": 140
+			},
+			"sourceSize": {
+				"w": 120,
+				"h": 140
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 488,
+			"h": 568
+		},
+		"scale": "1"
+	}
+}

@@ -9,7 +9,7 @@ class TileState;
 class Tile : public Actor
 {
 public:
-    Tile(Model *model, TileState *initialState);
+    Tile(TileState *initialState);
     ~Tile();
 
     // Getters
