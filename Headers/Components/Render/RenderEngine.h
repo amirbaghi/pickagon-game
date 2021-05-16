@@ -24,6 +24,10 @@ public:
     static double x_camera_offset;
     static double y_camera_offset;
 
+    static double size;
+    static double width;
+    static double height;
+
     // Init render engine
     static void init(int argc, char **argv, Game *game);
 

@@ -64,7 +64,7 @@ void Game::initGame(int argc, char **argv)
 
     MapSpawner *mapSpawner = new MapSpawner(models);
 
-    mapSpawner->setWidthAndHeight(7);
+    mapSpawner->setWidthAndHeight(5);
 
     map = mapSpawner->spawn();
 
@@ -77,6 +77,7 @@ void Game::initGame(int argc, char **argv)
     }
 
     player = new Player();
+    
 }
 
 int Game::mainLoop()

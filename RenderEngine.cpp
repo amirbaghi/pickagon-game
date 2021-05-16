@@ -10,6 +10,10 @@ Game *RenderEngine::game = nullptr;
 double RenderEngine::x_camera_offset = 0;
 double RenderEngine::y_camera_offset = 0;
 
+double RenderEngine::size = 0;
+double RenderEngine::width = 140;
+double RenderEngine::height = 120;
+
 RenderEngine::RenderEngine()
 {
 }
@@ -26,14 +30,17 @@ void RenderEngine::init(int argc, char **argv, Game *game)
     glHint(GL_MULTISAMPLE_FILTER_HINT_NV, GL_NICEST);
 
     glutInitWindowPosition(100, 100);
-    glutInitWindowSize(3000, 3000);
+    glutInitWindowSize(700, 700);
     glutCreateWindow("Pickagon");
 
     RenderEngine::game = game;
 
+    RenderEngine::height = 120.0 / 2.0;
+    RenderEngine::width = 140.0 / 2.0;
+
     glewInit();
 
-    glClearColor(0.0, 105.0 / 255.0 , 148.0 / 255.0 , 0.0);
+    glClearColor(0.0, 105.0 / 255.0, 148.0 / 255.0, 0.0);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -96,7 +103,7 @@ void RenderEngine::mouseFunction(int button, int state, int x, int y)
     auto w = glutGet(GLUT_WINDOW_WIDTH);
     auto h = glutGet(GLUT_WINDOW_HEIGHT);
 
-    glOrtho(0, w, 0, h, 0.0, 3.0);
+    glOrtho(0, w + 1000, 0, h + 1000, 0.0, 3.0);
 
     gluLookAt(RenderEngine::x_camera_offset, RenderEngine::y_camera_offset, 2, RenderEngine::x_camera_offset, RenderEngine::y_camera_offset, 0, 0, 1, 0);
 
@@ -124,7 +131,6 @@ void RenderEngine::mouseFunction(int button, int state, int x, int y)
     hits = glRenderMode(GL_RENDER);
     game->handleSelection(hits, selectBuf);
 }
-
 
 void RenderEngine::specialKeyboardFunction(int key, int x, int y)
 {
@@ -195,26 +201,26 @@ void RenderEngine::timer(int value)
         switch (RenderEngine::direction)
         {
         case UP:
-            if (RenderEngine::y_camera_offset <= 1000)
+            if (RenderEngine::y_camera_offset <= 700)
             {
                 RenderEngine::y_camera_offset += 10.0;
             }
             break;
         case DOWN:
-            if (RenderEngine::y_camera_offset >= -1000)
+            if (RenderEngine::y_camera_offset >= -700)
             {
 
                 RenderEngine::y_camera_offset -= 10.0;
             }
             break;
         case RIGHT:
-            if (RenderEngine::x_camera_offset <= 2000)
+            if (RenderEngine::x_camera_offset <= 700)
             {
                 RenderEngine::x_camera_offset += 10.0;
             }
             break;
         case LEFT:
-            if (RenderEngine::x_camera_offset >= -2000)
+            if (RenderEngine::x_camera_offset >= -700)
             {
                 RenderEngine::x_camera_offset -= 10.0;
             }
@@ -230,7 +236,6 @@ void RenderEngine::timer(int value)
 
     camera_config(w, h);
 
-
     glutTimerFunc(25, timer, value + 1);
 
     glutPostRedisplay();
@@ -241,7 +246,7 @@ void RenderEngine::camera_config(double w, double h)
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0, w + 10000, 0, h + 10000, 0.0, 3.0);
+    glOrtho(0, w + 1000, 0, h + 1000, 0.0, 3.0);
 
     gluLookAt(RenderEngine::x_camera_offset, RenderEngine::y_camera_offset, 2, RenderEngine::x_camera_offset, RenderEngine::y_camera_offset, 0, 0, 1, 0);
 
